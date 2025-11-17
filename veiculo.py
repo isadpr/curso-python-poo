@@ -1,4 +1,12 @@
-class Veiculo():
+from abc import ABC
+import interface_veiculo
+
+"""
+- Classe abstrata -> não pode ser instanciada diretamente.
+- Métodos abstratos -> devem ser implementados nas subclasses (não podem ser implementados na classe abstrata).
+"""
+
+class Veiculo(interface_veiculo.InterfaceVeiculo, ABC):
   """Classe que representa um veículo."""
 
   def __init__(self, cor, tipo_combustivel, potencia):
@@ -31,15 +39,13 @@ class Veiculo():
     """
     print("O objeto veículo foi destruído da memória.")
 
-  def pintar(self, nova_cor):
-    """Pinta o veículo com uma nova cor."""
-    self.__cor = nova_cor
-    print(f"O veículo foi pintado de {nova_cor}.")
-
   @property
   def cor(self):
     """Retorna a cor do veículo."""
     return self.__cor
+
+  def pintar(self, nova_cor):
+    self.__cor = nova_cor
 
   def abastecer(self, qtd_combustivel):
     """

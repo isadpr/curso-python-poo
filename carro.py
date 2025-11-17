@@ -8,3 +8,9 @@ class Carro(veiculo.Veiculo):
   def abastecer(self, qtd_combustivel):
    # print("o método abastecer da classe Carro foi chamado.")
     self._qtd_combustivel += qtd_combustivel
+
+  def pintar(self, nova_cor):
+    if nova_cor == 'rosa':
+      print("Carro não pode ser pintado de rosa.")
+    else:
+      super().pintar(nova_cor)
